@@ -16,26 +16,26 @@ The bundled checkpoint predicts one of four classes:
 
 - Glioma
 - Meningioma
-- No tumor
+- No Tumor
 - Pituitary
 
 ## Project Structure
 
 ```text
 .
-├── app.py
-├── cnn_improved_brain_tumor.pth
-├── docs/
-│   └── model_card.md
-├── screenshots/
-│   ├── app-desktop.png
-│   └── app-mobile.png
-├── .streamlit/
-│   └── config.toml
-├── requirements.txt
-├── run_app.bat
-├── run_app.ps1
-└── LICENSE
+|-- app.py
+|-- cnn_improved_brain_tumor.pth
+|-- docs/
+|   `-- model_card.md
+|-- screenshots/
+|   |-- app-desktop.png
+|   `-- app-mobile.png
+|-- .streamlit/
+|   `-- config.toml
+|-- requirements.txt
+|-- run_app.bat
+|-- run_app.ps1
+`-- LICENSE
 ```
 
 ## Quick Start

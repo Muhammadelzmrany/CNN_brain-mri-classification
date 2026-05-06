@@ -20,7 +20,7 @@ It is not intended for clinical diagnosis, triage, treatment decisions, or any r
 
 - Glioma
 - Meningioma
-- No tumor
+- No Tumor
 - Pituitary
 
 ## Architecture Summary
@@ -46,4 +46,3 @@ Checkpoint metadata:
 ## Responsible Use
 
 Display outputs as model predictions only. Do not present them as confirmed diagnoses.
-

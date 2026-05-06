@@ -10,6 +10,12 @@ from torchvision import transforms
 MODEL_PATH = Path("cnn_improved_brain_tumor.pth")
 IMAGE_SIZE = 128
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+DISPLAY_NAMES = {
+    "glioma": "Glioma",
+    "meningioma": "Meningioma",
+    "notumor": "No Tumor",
+    "pituitary": "Pituitary",
+}
 
 
 class CNNImproved(nn.Module):
@@ -93,7 +99,7 @@ def predict_image(image):
 
 def render_probability_bars(class_names, probabilities):
     for class_name, probability in zip(class_names, probabilities):
-        st.write(f"**{class_name.title()}**: {probability * 100:.2f}%")
+        st.write(f"**{DISPLAY_NAMES.get(class_name, class_name.title())}**: {probability * 100:.2f}%")
         st.progress(float(probability))
 
 
@@ -116,7 +122,7 @@ with st.sidebar:
     st.write(f"Device: {DEVICE}")
     st.write("Classes:")
     for class_name in class_names:
-        st.write(f"- {class_name.title()}")
+        st.write(f"- {DISPLAY_NAMES.get(class_name, class_name.title())}")
     st.divider()
     st.warning("Not intended for clinical diagnosis.")
 
@@ -139,7 +145,7 @@ else:
 
     with result_column:
         st.subheader("Prediction")
-        st.metric("Predicted class", predicted_label.title())
+        st.metric("Predicted class", DISPLAY_NAMES.get(predicted_label, predicted_label.title()))
         st.metric("Confidence", f"{confidence_score * 100:.2f}%")
 
         st.subheader("Class Probabilities")
