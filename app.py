@@ -103,6 +103,44 @@ def render_probability_bars(class_names, probabilities):
         st.progress(float(probability))
 
 
+def apply_dark_theme():
+    st.markdown(
+        """
+        <style>
+        .stApp {
+            background: #050A12;
+            color: #F8FAFC;
+        }
+
+        [data-testid="stHeader"] {
+            background: rgba(5, 10, 18, 0.88);
+        }
+
+        [data-testid="stSidebar"],
+        [data-testid="stSidebarContent"] {
+            background: #0B1220;
+        }
+
+        [data-testid="stFileUploaderDropzone"] {
+            background: #111827;
+            border-color: #243044;
+        }
+
+        [data-testid="stFileUploaderDropzone"] button {
+            background: #1F2937;
+            border-color: #334155;
+            color: #F8FAFC;
+        }
+
+        [data-testid="stAlert"] {
+            border-radius: 8px;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
+
+
 st.set_page_config(
     page_title="Brain Tumor MRI Classifier",
     page_icon=":brain:",
@@ -111,6 +149,7 @@ st.set_page_config(
 )
 
 model, class_names = load_model()
+apply_dark_theme()
 
 st.title("Brain Tumor MRI Classification")
 st.caption("Educational AI prototype for classifying uploaded brain MRI images.")
